@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - FaceTrack Portal{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="cards">
+    <div class="card">
+        <h3>Total Students</h3>
+        <p class="big-number">{{ total }}</p>
+    </div>
+    <div class="card">
+        <h3>Model Status</h3>
+        <p class="big-number">{{ "Trained ✅" if model_ready else "Not Trained ❌" }}</p>
+    </div>
+</div>
+
+<h2>Registered Students</h2>
+{% if students %}
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.student_id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.course }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No students registered yet. <a href="{{ url_for('register') }}">Register your first student</a>.</p>
+{% endif %}
+
+<div class="quick-actions">
+    <a class="btn" href="{{ url_for('register') }}">➕ Register Student</a>
+    <a class="btn" href="{{ url_for('train') }}">🧠 Train Model</a>
+    <a class="btn" href="{{ url_for('attendance_page') }}">🎥 Take Attendance</a>
+</div>
+{% endblock %}

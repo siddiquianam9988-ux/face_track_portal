@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+dataset/*
+!dataset/.gitkeep
+trainer/*
+!trainer/.gitkeep
+attendance/*
+!attendance/.gitkeep
+facetrack.db
+venv/
+.env

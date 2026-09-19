@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}View Attendance - FaceTrack Portal{% endblock %}
+
+{% block content %}
+<h1>Attendance for {{ date }}</h1>
+
+{% if records %}
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in records %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No attendance marked yet for today. <a href="{{ url_for('attendance_page') }}">Start a session</a>.</p>
+{% endif %}
+{% endblock %}

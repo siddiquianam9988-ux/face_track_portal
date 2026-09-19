@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Register Student - FaceTrack Portal{% endblock %}
+
+{% block content %}
+<h1>Register New Student</h1>
+<p class="hint">
+    After you submit this form, your webcam will open in a new window and capture
+    up to 50 face samples. Keep your face centered and move slightly for better accuracy.
+    Press <b>Q</b> to stop early.
+</p>
+
+<form method="POST" class="form">
+    <label for="student_id">Student ID</label>
+    <input type="text" id="student_id" name="student_id" placeholder="e.g. 2024CS101" required>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="e.g. Anam Khan" required>
+
+    <label for="course">Course (optional)</label>
+    <input type="text" id="course" name="course" placeholder="e.g. MCA - AI & ML">
+
+    <button type="submit" class="btn">Register &amp; Capture Face</button>
+</form>
+{% endblock %}

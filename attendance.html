@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Take Attendance - FaceTrack Portal{% endblock %}
+
+{% block content %}
+<h1>Take Attendance</h1>
+<p class="hint">
+    Clicking the button below will open your webcam. Recognized students will be
+    marked present automatically (once per day). Press <b>Q</b> to stop the session.
+</p>
+
+<a class="btn btn-large" href="{{ url_for('mark_attendance') }}">🎥 Start Attendance Session</a>
+{% endblock %}
